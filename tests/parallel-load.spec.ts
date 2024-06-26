@@ -11,10 +11,12 @@ test("open three tabs and navigate to pages in parallel", async ({
   const page2 = await context.newPage();
   const page3 = await context.newPage();
 
+  const host = "https://my-parallel-app.pages.dev";
+  // const host = "http://localhost:8788";
   // URLs to navigate to
-  const url1 = "http://localhost:8788/thing1";
-  const url2 = "http://localhost:8788/thing2";
-  const url3 = "http://localhost:8788/thing1";
+  const url1 = `${host}/thing1`;
+  const url2 = `${host}/thing2`;
+  const url3 = `${host}/thing1`;
 
   // Navigate to the pages in parallel
   await Promise.all([page1.goto(url1), page2.goto(url2), page3.goto(url3)]);
